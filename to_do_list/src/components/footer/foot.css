@@ -1,0 +1,10 @@
+.footer{
+    height: 4rem;
+    width: 35rem;
+    display: flex;
+    background-color: black;
+    color: wheat;
+    border-radius: 20px;
+    justify-content: space-evenly;
+}
+
