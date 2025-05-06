@@ -1,0 +1,13 @@
+#edit-input{
+    background: none;
+    border: 1px solid white;
+    color: wheat;
+    min-height: 1.5rem;
+    width: 18rem;
+}
+
+#edit-com-button{
+    background-color: green;
+    color: white;
+    border: 0.5px solid wheat;
+}

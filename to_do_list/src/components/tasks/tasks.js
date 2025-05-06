@@ -1,8 +1,20 @@
 import React, { useState } from 'react'
 import "./task.css"
+import Edit from '../editable/edit';
 function Tasks({taskList , setTaskList}) {
-    const handleEditClick = () => {
-
+    const [edit, setEdit] = useState(false);
+    const [editInd, setEditInd] = useState(null);
+    const handleEditClick = (index) => {
+        const finalList = taskList.filter((task,ind)=>{
+            if (ind !== index){
+                return task
+            } else{
+                setEdit(true)
+                setEditInd(index)
+                return task
+            }
+        })
+        setTaskList(finalList)
     }
     const handleDelClick = (index) => {
         const finalList = taskList.filter((task,ind)=>{
@@ -18,6 +30,9 @@ function Tasks({taskList , setTaskList}) {
             {
                 taskList.map((tsk,index)=>
                     <li key={index} style={{listStyle: "none" , margin: 0, padding: 0}}>
+                        { edit && editInd == index ? (
+                        <Edit />)
+                        :(
                         <div className='card'>
                             <div id='li'>
                                 {tsk}
@@ -26,7 +41,8 @@ function Tasks({taskList , setTaskList}) {
                                 <button onClick={() => handleEditClick(index)} style={{color: "rgb(12, 126, 196)"}}>Edit..</button>
                                 <button onClick={() => handleDelClick(index)} style={{color: "red"}}>Delete</button>
                             </div>
-                        </div>
+                        </div>)
+                        }
                     </li>
                 )
             }
