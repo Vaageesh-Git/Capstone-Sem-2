@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./task.css"
 import Edit from '../editable/edit';
-function Tasks({taskList , setTaskList}) {
+function Tasks({taskList , setTaskList, setPageList, pageList, currNumber}) {
     const [edit, setEdit] = useState(false);
     const [editInd, setEditInd] = useState(null);
     const handleEditClick = (index) => {
@@ -28,7 +28,7 @@ function Tasks({taskList , setTaskList}) {
         <div>
             <ul style={{margin: 0, padding: 0}}>
             {
-                taskList.map((tsk,index)=>
+                taskList.slice(currNumber,currNumber+5).map((tsk,index)=>
                     <li key={index} style={{listStyle: "none" , margin: 0, padding: 0}}>
                         { edit && editInd == index ? 
                         <Edit val={tsk} index= {index} setTaskList={setTaskList} taskList={taskList} setEdit={setEdit}/>
