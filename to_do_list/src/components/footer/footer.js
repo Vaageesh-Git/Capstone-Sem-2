@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "./foot.css"
-function Footer({taskList,currNumber, setTaskList, setCurrNumber, pageList, setPageList}) {
+function Footer({taskList,currNumber, setCurrNumber}) {
   const [count, setCount] = useState(1);
 
   const handleNextClick = () => {
@@ -8,7 +8,6 @@ function Footer({taskList,currNumber, setTaskList, setCurrNumber, pageList, setP
     const newPage = taskList.slice(newcurr,newcurr+5)
     if (newPage.length > 0){
       setCurrNumber(currNumber+5)
-      setPageList(newPage)
       setCount(count+1)
     } else{
       alert("You have reached end of the list.")
@@ -20,7 +19,6 @@ function Footer({taskList,currNumber, setTaskList, setCurrNumber, pageList, setP
       const newcurr = currNumber-5
       const newPage = taskList.slice(newcurr,newcurr+5)
       setCurrNumber(newcurr)
-      setPageList(newPage)
       setCount(count-1)
     }
   }
