@@ -30,8 +30,8 @@ function Tasks({taskList , setTaskList}) {
             {
                 taskList.map((tsk,index)=>
                     <li key={index} style={{listStyle: "none" , margin: 0, padding: 0}}>
-                        { edit && editInd == index ? (
-                        <Edit />)
+                        { edit && editInd == index ? 
+                        <Edit val={tsk} index= {index} setTaskList={setTaskList} taskList={taskList} setEdit={setEdit}/>
                         :(
                         <div className='card'>
                             <div id='li'>
