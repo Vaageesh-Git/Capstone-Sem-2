@@ -13,13 +13,12 @@ function App() {
         <h1 style={{color: "white"}}>To Do List</h1>
       </div>
       <div className='content'>
-        <SearchBox taskList= {taskList} setTaskList={setTaskList}/>
-        <Tasks taskList={taskList} currNumber={currNumber} setTaskList={setTaskList} />
+        <SearchBox taskList= {taskList} setTaskList={setTaskList} currNumber={currNumber} setCurrNumber={setCurrNumber}/>
+        <Tasks taskList={taskList} currNumber={currNumber} setTaskList={setTaskList} setCurrNumber={setCurrNumber}/>
       </div>
-      <p style={{color:"white"}}>* List Ends Here *</p>
+      {/* <p style={{color:"white"}}>* List Ends Here *</p> */}
       <Footer taskList={taskList} setTaskList={setTaskList} currNumber={currNumber} setCurrNumber={setCurrNumber} />
     </div>
-
   );
 }
 
