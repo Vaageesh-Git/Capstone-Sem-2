@@ -1,27 +1,34 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import "./nav.css";
 
-import "./nav.css"
-function Navbar() {
+function Navbar({ isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
 
-  const goToLogin = () => {
-    navigate('/login');
-  };
-  const goToRegister = () => {
-    navigate('/register');
+  const goToLogin = () => navigate('/login');
+  const goToRegister = () => navigate('/register');
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentUser");
+    setIsLoggedIn(false);
+    navigate("/login");
   };
 
   return (
-    
     <nav className='navbar'>
-        <h2 style={{color:"#f39c12"}}>To Do List</h2>
-        <div className='nav-buttons'>
+      <h2 style={{ color: "#f39c12" }}>TaskVeda</h2>
+      <div className='nav-buttons'>
+        {isLoggedIn ? (
+          <button onClick={handleLogout}>Logout</button>
+        ) : (
+          <>
             <button onClick={goToLogin}>Login</button>
             <button onClick={goToRegister}>Sign Up</button>
-        </div>
+          </>
+        )}
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

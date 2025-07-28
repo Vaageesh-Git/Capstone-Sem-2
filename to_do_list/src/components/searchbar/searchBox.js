@@ -16,7 +16,7 @@ export default function SearchBox({setTaskList,taskList,setCurrNumber, currNumbe
       const lastPageStart = Math.floor((updatedList.length - 1) / 5) * 5;
       setCurrNumber(lastPageStart);
   
-    } else if (task == ""){
+    } else if (task === ""){
       alert("Write Something In the Task Box")
     } else if ((taskList.includes(task))) {
       alert("Task Already exists")

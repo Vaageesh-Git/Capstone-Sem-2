@@ -33,7 +33,7 @@ function Tasks({taskList, setTaskList, currNumber, setCurrNumber}) {
                     const actualInd = currNumber + index
                     return (
                         <li key={actualInd} style={{listStyle: "none" , margin: 0, padding: 0}}>
-                            { edit && editInd == actualInd ? 
+                            { edit && editInd === actualInd ? 
                             <Edit val={tsk} index= {actualInd} setTaskList={setTaskList} taskList={taskList} setEdit={setEdit}/>
                             :(
                             <div className='card'>
